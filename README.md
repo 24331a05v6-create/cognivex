@@ -6,6 +6,8 @@ A local real-time cognitive state reconciliation system that ingests asynchronou
 
 **Live Demo:** [https://cognivex-654j.vercel.app](https://cognivex-654j.vercel.app)
 
+**Demo Video:** [Watch on Google Drive](https://drive.google.com/file/d/1bZOjXjUOcz4I2jVp24kJ02ibxRvkVV5j/view?usp=sharing)
+
 ---
 
 ## Problem Statement
