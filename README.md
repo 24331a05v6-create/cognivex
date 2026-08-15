@@ -4,6 +4,8 @@
 
 A local real-time cognitive state reconciliation system that ingests asynchronous events from multiple sources, deterministically reconciles conflicts, and produces an auditable cognitive timeline.
 
+**Live Demo:** [https://cognivex-654j.vercel.app](https://cognivex-654j.vercel.app)
+
 ---
 
 ## Problem Statement
