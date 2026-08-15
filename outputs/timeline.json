@@ -1,0 +1,73 @@
+{
+  "description": "Reconciled cognitive timeline generated from edge_cases.json",
+  "version": "1.0.0",
+  "total_events": 11,
+  "timeline": [
+    {
+      "timestamp": "2024-07-01T10:00:00.000Z",
+      "cognitive_state": "focused",
+      "confidence": 0.9,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:00:00.000Z",
+      "cognitive_state": "focused",
+      "confidence": 0.85,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:05:00.000Z",
+      "cognitive_state": "confused",
+      "confidence": 0.8,
+      "source": "camera_b"
+    },
+    {
+      "timestamp": "2024-07-01T10:00:00.000Z",
+      "cognitive_state": "focused",
+      "confidence": 0.85,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:05:00.000Z",
+      "cognitive_state": "distracted",
+      "confidence": 0.7,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:00:00.000Z",
+      "cognitive_state": "focused",
+      "confidence": 0.9,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:02:00.000Z",
+      "cognitive_state": "confused",
+      "confidence": 0.65,
+      "source": "ui_log"
+    },
+    {
+      "timestamp": "2024-07-01T10:05:00.000Z",
+      "cognitive_state": "distracted",
+      "confidence": 0.75,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:05:00.000Z",
+      "cognitive_state": "focused",
+      "confidence": 0.85,
+      "source": "camera_b"
+    },
+    {
+      "timestamp": "2024-07-01T10:00:00.000Z",
+      "cognitive_state": "focused",
+      "confidence": 0.85,
+      "source": "camera_a"
+    },
+    {
+      "timestamp": "2024-07-01T10:05:00.000Z",
+      "cognitive_state": "confused",
+      "confidence": 0.7,
+      "source": "camera_b"
+    }
+  ]
+}

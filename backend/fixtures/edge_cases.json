@@ -1,0 +1,176 @@
+{
+  "description": "Cognivex edge case fixtures covering all five required scenarios",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "case_id": "CASE_1",
+      "name": "Exact duplicate from same source at same timestamp",
+      "description": "Two identical events with the same event_id should result in only one event being stored",
+      "events": [
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_1",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.90,
+          "reliability": "high"
+        },
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_1",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.90,
+          "reliability": "high"
+        }
+      ]
+    },
+    {
+      "case_id": "CASE_2",
+      "name": "Same source duplicate at different timestamp",
+      "description": "Same source/user/state at different timestamps - keep the latest observation",
+      "events": [
+        {
+          "source": "camera_b",
+          "user_id": "user_edge_2",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.75,
+          "reliability": "medium"
+        },
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_2",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.85,
+          "reliability": "high"
+        },
+        {
+          "source": "camera_b",
+          "user_id": "user_edge_2",
+          "timestamp": "2024-07-01T10:05:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.80,
+          "reliability": "high"
+        }
+      ]
+    },
+    {
+      "case_id": "CASE_3",
+      "name": "Camera A vs UI Log conflict at same timestamp",
+      "description": "Conflict between camera and UI log at same timestamp - resolved by scoring",
+      "events": [
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_3",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.85,
+          "reliability": "high"
+        },
+        {
+          "source": "ui_log",
+          "user_id": "user_edge_3",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.60,
+          "reliability": "medium"
+        },
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_3",
+          "timestamp": "2024-07-01T10:05:00Z",
+          "cognitive_state": "distracted",
+          "confidence": 0.70,
+          "reliability": "medium"
+        }
+      ]
+    },
+    {
+      "case_id": "CASE_4",
+      "name": "Late/out-of-order event arriving after earlier reconciliation",
+      "description": "A late event should be properly integrated into the timeline",
+      "events": [
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_4",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.90,
+          "reliability": "high"
+        },
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_4",
+          "timestamp": "2024-07-01T10:05:00Z",
+          "cognitive_state": "distracted",
+          "confidence": 0.75,
+          "reliability": "medium"
+        },
+        {
+          "source": "ui_log",
+          "user_id": "user_edge_4",
+          "timestamp": "2024-07-01T10:02:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.65,
+          "reliability": "low"
+        }
+      ]
+    },
+    {
+      "case_id": "CASE_5",
+      "name": "Invalid dependency - confused before any valid focused state",
+      "description": "Confused state without prior focused state should be rejected",
+      "events": [
+        {
+          "source": "camera_a",
+          "user_id": "user_edge_5",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.80,
+          "reliability": "high"
+        },
+        {
+          "source": "camera_b",
+          "user_id": "user_edge_5",
+          "timestamp": "2024-07-01T10:05:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.85,
+          "reliability": "high"
+        }
+      ]
+    },
+    {
+      "case_id": "CASE_6",
+      "name": "Multi-user isolation",
+      "description": "Events from different users should not affect each other",
+      "events": [
+        {
+          "source": "camera_a",
+          "user_id": "user_iso_1",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "focused",
+          "confidence": 0.85,
+          "reliability": "high"
+        },
+        {
+          "source": "camera_a",
+          "user_id": "user_iso_2",
+          "timestamp": "2024-07-01T10:00:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.80,
+          "reliability": "high"
+        },
+        {
+          "source": "camera_b",
+          "user_id": "user_iso_1",
+          "timestamp": "2024-07-01T10:05:00Z",
+          "cognitive_state": "confused",
+          "confidence": 0.70,
+          "reliability": "medium"
+        }
+      ]
+    }
+  ]
+}

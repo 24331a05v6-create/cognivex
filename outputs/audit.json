@@ -1,0 +1,49 @@
+{
+  "description": "Audit trail generated from edge_cases.json reconciliation",
+  "version": "1.0.0",
+  "total_decisions": 4,
+  "audit_records": [
+    {
+      "user_id": "user_edge_2",
+      "event_ids": [
+        "0d2b07c640a2dec9",
+        "a84c0015910e5c50"
+      ],
+      "decision": "replaced",
+      "reason": "Event replaced by newer observation from same source",
+      "final_state": "confused",
+      "reconciliation_order": 0
+    },
+    {
+      "user_id": "user_edge_3",
+      "event_ids": [
+        "275abddc4f44a349",
+        "92759fd5577d2d5f"
+      ],
+      "decision": "conflict_resolved",
+      "reason": "Conflict resolved: focused won with score 0.85",
+      "final_state": "focused",
+      "reconciliation_order": 1
+    },
+    {
+      "user_id": "user_edge_5",
+      "event_ids": [
+        "0e537f3f3e2c08ab"
+      ],
+      "decision": "rejected",
+      "reason": "Rejected confused state because no earlier valid focused state exists",
+      "final_state": null,
+      "reconciliation_order": 2
+    },
+    {
+      "user_id": "user_iso_2",
+      "event_ids": [
+        "3d625033c43ac58e"
+      ],
+      "decision": "rejected",
+      "reason": "Rejected confused state because no earlier valid focused state exists",
+      "final_state": null,
+      "reconciliation_order": 3
+    }
+  ]
+}
